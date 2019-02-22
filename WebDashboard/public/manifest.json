@@ -1,6 +1,6 @@
 {
-  "short_name": "TaxiApp Dashboard",
-  "name": "Strap Taxi App WebDashboard",
+  "short_name": "Dashboard",
+  "name": "WebDashboard",
   "icons": [
     {
       "src": "favicon.ico",
