@@ -1,23 +1,17 @@
 {
-  "name": "mynewcli",
-  "description": "test",
+  "name": "automate-crud",
+  "description": "CLI tool which accepts db schema and automatically generates API( Express, Mongo ) and an AdminPanel( React, Redux ) to perform CRUD ops.",
   "version": "0.0.0",
   "author": "Naman @NamanAulakh",
   "bin": {
     "mynewcli": "./bin/run"
   },
-  "bugs": "https://github.com/NamanAulakh/mynewcli/issues",
   "dependencies": {
     "@oclif/command": "^1.5.10",
     "@oclif/config": "^1.12.6",
     "@oclif/plugin-help": "^2.1.6",
     "cli-ux": "^5.1.0",
-    "install": "^0.12.2",
-    "intercity-api": "file:code/API",
     "lodash": "^4.17.11",
-    "npm": "^6.8.0",
-    "react-redux-toastr": "^7.4.7",
-    "redux-form": "^8.1.0",
     "string-template": "^1.0.0"
   },
   "engines": {
@@ -27,7 +21,6 @@
     "/bin",
     "/src"
   ],
-  "homepage": "https://github.com/NamanAulakh/mynewcli",
   "keywords": [
     "oclif"
   ],
@@ -42,7 +35,6 @@
       "stage-2"
     ]
   },
-  "repository": "NamanAulakh/mynewcli",
   "scripts": {
     "posttest": "eslint .",
     "test": "echo NO TESTS"
