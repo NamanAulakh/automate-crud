@@ -3,7 +3,11 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const { Command } = require('@oclif/command');
 const { get } = require('lodash');
-const { createBasicStructure, createAPI, createWebDashboard } = require('./util');
+const {
+  createBasicStructure,
+  createAPI,
+  createWebDashboard,
+} = require('./util');
 const { cli } = require('cli-ux');
 
 class MynewcliCommand extends Command {
@@ -25,10 +29,10 @@ class MynewcliCommand extends Command {
       if (webError) return cli.action.stop(webError);
       console.log('Starting processes...');
       await exec(
-        'osascript -e \'tell app "Terminal" to do script "cd ~/Desktop/Yo/mynewcli/code/API && ns"\''
+        `osascript -e \'tell app "Terminal" to do script "cd ${__dirname}/../code/API && ns"\'`
       );
       await exec(
-        'osascript -e \'tell app "Terminal" to do script "cd ~/Desktop/Yo/mynewcli/code/WebDashboard && ns"\''
+        `osascript -e \'tell app "Terminal" to do script "cd ${__dirname}/../code/WebDashboard && ns"\'`
       );
 
       cli.action.stop();
