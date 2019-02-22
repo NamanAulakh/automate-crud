@@ -6,6 +6,10 @@
 [![Downloads/week](https://img.shields.io/npm/dw/mynewcli.svg)](https://npmjs.org/package/mynewcli)
 [![License](https://img.shields.io/npm/l/mynewcli.svg)](https://github.com/NamanAulakh/mynewcli/blob/master/package.json)
 
+# Prerequisites
+
+- mongo must be up and running
+
 # Usage
 
 Config file should be a `.js` file and should look something like this:
@@ -14,9 +18,11 @@ Config file should be a `.js` file and should look something like this:
 
 # Commands
 
-Run `npm i && ./bin/run <path-to-the -config-file>` in the project root:
+Run `npm i && ./bin/run <path-to-the -config-file>` in the project root( might take 2 - 3 minutes ):
 
 [![demo](https://github.com/NamanAulakh/automate-crud/blob/master/assets/1.gif?raw=true)
+
+- Finally the generated code can be found in `code` directory in the project root.
 
 # Roadmap
 
@@ -30,3 +36,5 @@ Run `npm i && ./bin/run <path-to-the -config-file>` in the project root:
 - Allow users with options to customize the app
 - Improve UI
 - should be able to generate API and AdminPanel independently.
+
+
