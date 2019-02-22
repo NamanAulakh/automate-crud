@@ -1,6 +1,4 @@
-# mynewcli
-
-test
+# automate-crud
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/mynewcli.svg)](https://npmjs.org/package/mynewcli)
@@ -8,7 +6,15 @@ test
 [![Downloads/week](https://img.shields.io/npm/dw/mynewcli.svg)](https://npmjs.org/package/mynewcli)
 [![License](https://img.shields.io/npm/l/mynewcli.svg)](https://github.com/NamanAulakh/mynewcli/blob/master/package.json)
 
-<!-- toc -->
+# Usage
+
+Config file should like this:
+
+
+
+# Commands
+
+Run `./bin/run <path-to-the -config-file>` in the project root
 
 # Roadmap
 
@@ -22,13 +28,3 @@ test
 - Allow users with options to customize the app
 - Improve UI
 - should be able to generate API and AdminPanel independently.
-
-# Usage
-
-<!-- usage -->
-
-# Commands
-
-<!-- commands -->
-
-  <!-- commands -->
