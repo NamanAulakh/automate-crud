@@ -1,0 +1,91 @@
+.Panelprice{
+  /*height: 194px;*/
+  & .panelBody {
+     background-color: #fff;
+     & .form {
+        margin-top: 11px;
+       & .formgroup {
+          margin-top: 10px;
+          margin-bottom:  6px;
+          & .formcontrol {
+            background-color: '#ddd';
+            width: 65%;
+          }
+       }
+     }
+  }
+}
+
+
+ .div1 {
+    height: 158px;
+    background-color: white;
+   & .form1 {
+       background-color: white;
+       /*padding: 20px 20px;*/
+       padding-top: 46px;
+       padding-bottom: 20px;
+       padding-left: 40px;
+       & .formgroup {
+          margin-top: 11px;
+          margin-bottom: 10px;
+       }
+    }
+}
+
+
+
+.panelmobileApp{
+  // height: 158px;
+  & .panelBody {
+     background-color: #fff;
+     padding: 0px;
+  & .pannelListGroup {
+     margin-bottom: 0px;
+     margin-top: -4px;
+     & .pannelList {
+       border-width: 0;
+       margin-bottom: 5px;
+       padding: 15px 15px;
+       border-bottom-width: 1px;
+       border-bottom-color: #eee;
+       span {
+         color: grey;
+       }
+       & .pannelListButtons {
+         display: inline-block;
+         float: right;
+       }
+     }
+      & .panellist2{
+        border-bottom-width: 0px;
+     }
+
+   }
+  }
+  & .form {
+    // margin-left: 40px;
+     margin-top: 5px;
+     margin-bottom: 5px;
+    & .formgroup {
+       margin-top: 28px;
+       margin-bottom:  6px;
+       & .formcontrol {
+         background-color: '#ddd';
+         width: 65%;
+       }
+    }
+  }
+    & .formemail {
+      margin-top: 11px;
+      margin-bottom: 10px;
+     & .formgroup {
+        margin-top: 10px;
+        margin-bottom:  6px;
+        & .formcontrol {
+          background-color: '#ddd';
+          width: 65%;
+        }
+     }
+   }
+}

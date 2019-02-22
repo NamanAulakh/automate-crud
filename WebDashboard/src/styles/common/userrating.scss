@@ -1,0 +1,19 @@
+.starButtonToolbar {
+  margin-bottom: -2px;
+  & .starButtonActive {
+    padding: 0;
+    margin: 0;
+    margin-right: 1px;
+    color: #F6A623;
+    border: none;
+    outline:none;
+  }
+  & .starButton {
+    padding: 0;
+    margin: 0;
+    margin-right: 1px;
+    color: grey;
+    border: none;
+    outline:none;
+  }
+}

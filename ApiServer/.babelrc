@@ -1,0 +1,26 @@
+{
+  presets: [
+    [
+      'env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['./'],
+        alias: {
+          app: './server',
+        },
+      },
+    ],
+    ['transform-object-rest-spread', { useBuiltIns: true }],
+    'transform-decorators-legacy',
+    'transform-class-properties',
+  ],
+}

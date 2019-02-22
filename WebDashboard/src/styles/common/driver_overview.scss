@@ -1,0 +1,119 @@
+.updateTrip {
+  & :global(.form-control) {
+    box-shadow: none;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px solid #ccc;
+  }
+  & :global(textarea) {
+    text-align: justify;
+  }
+  & :global(.btn-rounded) {
+    width: 100px;
+  }
+}
+
+.trips {
+  & .pannelListGroup {
+    margin-bottom: 0px;
+    margin-top: -4px;
+    & .pannelList {
+      border-width: 0;
+      span {
+        color: grey;
+      }
+      & .pannelListButtons {
+        display: inline-block;
+        float: right;
+      }
+      & .pannelListButtonGreen {
+        border-color: #86AA66;
+        color: #86AA66;
+        border-width: 2px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+      & .pannelListButtonRed {
+        border-color: #C17172;
+        color: #C17172;
+        border-width: 2px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+  }
+  & .panelTableBody {
+    padding: 0px;
+    & .panelTable {
+      margin-top: 2px;
+      margin-bottom: 0px;
+      padding: 0px;
+      & .panelTableHead{
+        background: #F2F6F9;
+      }
+    }
+    & .panelTableTBody {
+      td {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*white-space: nowrap;*/
+        & .starButtonToolbar {
+          margin-bottom: -2px;
+          & .starButtonActive {
+            padding: 0;
+            margin: 0;
+            margin-right: 1px;
+            color: #F6A623;
+            border: none;
+            outline:none;
+          }
+          & .starButton {
+            padding: 0;
+            margin: 0;
+            margin-right: 1px;
+            color: grey;
+            border: none;
+            outline:none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .driverDetailsPanel {
+//   .contentdiv{
+//     padding: 10px;
+//   .title {
+//     padding-right: 15px;
+//     font-weight: bold;
+//     color: grey;
+//   }
+//   .tittleValue {
+//     font-weight: bold;
+//     color: #555;
+//   }
+// }
+//   .imgdiv{
+//     height: 150px;
+//     margin-top: 15px;
+//   .title {
+//     padding-right: 15px;
+//     font-weight: bold;
+//     color: grey;
+//   }
+//   .tittleValue {
+//     font-weight: bold;
+//     color: #555;
+//   }
+//   img {
+//     border: 1px solid #000;
+//     cursor: pointer;
+//   }
+// }
+// }

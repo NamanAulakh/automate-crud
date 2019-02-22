@@ -1,0 +1,127 @@
+.profilediv {
+  background-color: white;
+  padding: 20px 15px;
+  margin-left: 7px;
+  margin-right: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  height: 120px;
+  box-shadow: 2px 2px 1px 2px #ccc;
+  & .image {
+    display: inline-block !important;
+    width: 80px;
+    margin-left: 16px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    margin-top: -25px;
+  }
+  & .profdetails {
+    display: inline-block;
+    & .profname {
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    & .namephone {
+      margin-top: 10px;
+    }
+    & .profrating {
+      display: inline-block;
+      margin-left: 15px;
+      margin-top: 10px;
+      & .starButtonToolbar {
+        margin-bottom: -2px;
+        & .starButtonActive {
+          padding: 0;
+          margin: 0;
+          margin-right: 1px;
+          color: #f6a623;
+          border: none;
+          outline: none;
+        }
+        & .starButton {
+          padding: 0;
+          margin: 0;
+          margin-right: 1px;
+          color: grey;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+    & .phone {
+      display: inline-block;
+    }
+    & .email {
+      display: inline-block;
+    }
+  }
+  & .deactivebutton {
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
+    border-color: #1b557a;
+    border-radius: 3px;
+    color: #1b557a;
+    border-width: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.tabdiv {
+  padding: 0;
+  & .panelTableBody {
+    padding: 0px;
+    & .panelTable {
+      margin-top: 2px;
+      margin-bottom: 0px;
+      padding: 0px;
+      & .panelTableHead {
+        background: #f2f6f9;
+      }
+    }
+    & .panelTableTBody {
+      td {
+        max-width: 400px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+        & .starButtonToolbar {
+          margin-bottom: -2px;
+          & .starButtonActive {
+            padding: 0;
+            margin: 0;
+            margin-right: 1px;
+            color: #f6a623;
+            border: none;
+            outline: none;
+          }
+          & .starButton {
+            padding: 0;
+            margin: 0;
+            margin-right: 1px;
+            color: grey;
+            border: none;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*FormControl {
+  box-shadow: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #ccc;
+  background-color: yellow;
+}
+.custome {
+  background-color: blue;
+}*/

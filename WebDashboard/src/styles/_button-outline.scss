@@ -1,0 +1,53 @@
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.btn-outline {
+  background: none;
+}
+
+.btn-outline.btn-primary {
+  box-shadow: 0 0 0 2px #2089c9 inset;
+  color: #2089c9;
+  border-color: transparent;
+  &:hover {
+    background: none;
+  }
+}
+.btn-outline.btn-info {
+  box-shadow: 0 0 0 2px #31b0d5 inset;
+  color: #31b0d5;
+  border-color: transparent;
+  &:hover {
+    background: none;
+  }
+}
+
+.btn-outline.btn-success {
+  box-shadow: 0 0 0 2px #449d44 inset;
+  color: #449d44;
+  border-color: transparent;
+  &:hover {
+    background: none;
+    box-shadow: 0 0 0 2px #5cb85c inset;
+    color: #5cb85c;
+  }
+}
+
+.btn-outline.btn-warning {
+  box-shadow: 0 0 0 2px #ec971f inset;
+  color: #ec971f;
+  border-color: transparent;
+  &:hover {
+    background: none;
+  }
+}
+
+.btn-outline.btn-danger {
+  box-shadow: 0 0 0 2px #d53e3a inset;
+  color: #d53e3a;
+  border-color: transparent;
+  &:hover {
+    background: none;
+  }
+}

@@ -1,0 +1,171 @@
+.pannelListGroup {
+  margin-bottom: 0px;
+  margin-top: -4px;
+  & .pannelList {
+    border-width: 0;
+    span {
+      color: grey;
+    }
+    & .pannelListButtons {
+      display: inline-block;
+      float: right;
+    }
+    & .pannelListButtonGreen {
+      border-color: #86aa66;
+      color: #86aa66;
+      border-width: 2px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    & .pannelListButtonRed {
+      border-color: #c17172;
+      color: #c17172;
+      border-width: 2px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+}
+.Panel {
+  // border-radius: 0px;
+  // border: 2px solid #ddd;
+  // border-color: none;
+  .panelTableBody {
+    padding: 0px;
+    & .panelTable {
+      margin-top: 2px;
+      margin-bottom: 0px;
+      padding: 0px;
+      & .panelTableHead {
+        background: #f2f6f9;
+      }
+    }
+    & .panelTableTBody {
+      td {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+        & .starButtonToolbar {
+          margin-bottom: -2px;
+          & .starButtonActive {
+            padding: 0;
+            margin: 0;
+            margin-right: 1px;
+            color: #f6a623;
+            border: none;
+            outline: none;
+          }
+          & .starButton {
+            padding: 0;
+            margin: 0;
+            margin-right: 1px;
+            color: grey;
+            border: none;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.driverStatusBar {
+  margin-bottom: 10px;
+  div {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    text-overflow: ellipsis;
+    display: inline-block;
+    line-height: 44px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+.driverStatusBarGreen {
+  border-right: solid 1px rgb(236, 240, 241);
+  background-color: rgb(111, 200, 10);
+  color: #fefefe;
+}
+.driverStatusBlue {
+  border-left: solid 1px rgb(236, 240, 241);
+  border-right: solid 1px rgb(236, 240, 241);
+  background-color: rgb(73, 144, 226);
+  color: #fefefe;
+}
+.driverStatusBarGrey {
+  border-left: solid 1px rgb(236, 240, 241);
+  background-color: rgb(224, 224, 224);
+  color: grey;
+}
+
+.reviewList {
+  padding-bottom: 8px;
+  height: 307px;
+  overflow: scroll;
+  & .reviewListItem {
+    position: relative;
+    margin-bottom: 10px;
+
+    & .reviewIconBlock {
+      display: inline-block;
+      width: 15%;
+      .reviewIconImg {
+        position: absolute;
+        top: 0;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+    }
+    & .reviewTextBlock {
+      display: inline-block;
+      width: 85%;
+      span {
+        display: inline-block;
+      }
+      & .reviewComment {
+        color: rgba(128, 128, 128, 0.6);
+        font-size: 12px;
+        padding-bottom: 3px;
+        border-bottom: solid 1.5px rgba(128, 128, 128, 0.3);
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+      }
+      & .rightSpan {
+        float: right;
+        color: grey;
+        font-size: 12px;
+      }
+      & .starButtonToolbar {
+        margin-left: 10px;
+        display: inline-block;
+        margin-bottom: -5px;
+        & .starButtonActive {
+          padding: 0;
+          margin: 0;
+          margin-right: 1px;
+          color: #f6a623;
+          border: none;
+          outline: none;
+        }
+        & .starButton {
+          padding: 0;
+          margin: 0;
+          margin-right: 1px;
+          color: grey;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+  }
+}

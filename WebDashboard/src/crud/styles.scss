@@ -1,0 +1,22 @@
+.table-row {
+  position: relative;
+  .action-buttons {
+    position: absolute;
+    left: 600px;
+    display: none;
+  }
+  .action-buttons-left {
+    position: absolute;
+    left: 500px;
+    display: none;
+  }
+
+  &:hover {
+    .action-buttons {
+      display: block;
+    }
+    .action-buttons-left {
+      display: block;
+    }
+  }
+}

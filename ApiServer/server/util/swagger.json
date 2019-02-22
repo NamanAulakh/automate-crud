@@ -1,0 +1,1772 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Intercity Rideshare",
+    "description": "Intercity's API web documentation.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3010",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Health Check",
+      "description": "API for checking if API server is working"
+    },
+    {
+      "name": "Auth",
+      "description": "API for user registration and login"
+    },
+    {
+      "name": "Users",
+      "description": "API for users"
+    },
+    {
+      "name": "Create Admin",
+      "description": "API for creation of new admin users"
+    },
+    {
+      "name": "City",
+      "description": "API for creation of cities"
+    },
+    {
+      "name": "Vehicle Type",
+      "description": "API for creation of vehicle types"
+    },
+    {
+      "name": "Coupon",
+      "description": "API for creation of coupons"
+    },
+    {
+      "name": "Transportation company",
+      "description": "API for transportation companies"
+    },
+    {
+      "name": "Route",
+      "description": "API for routes"
+    },
+    {
+      "name": "Vehicle",
+      "description": "API for vehicles"
+    },
+    {
+      "name": "Trip",
+      "description": "API for trips"
+    },
+    {
+      "name": "Reservation",
+      "description": "API for reservations"
+    },
+    {
+      "name": "Send E-mails",
+      "description": "API for sending e-mails"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/health-check": {
+      "get": {
+        "tags": [
+          "Health Check"
+        ],
+        "description": "Checks to see if server is reachable",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all coupons."
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Register new user",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Authenticate user and returns a token.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User credentials",
+            "example": {
+              "email": "a@a.com",
+              "password": "1234"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User gets authenticated.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/list": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Lists all registered users.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Users listed.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/createAdmin": {
+      "post": {
+        "tags": [
+          "Create Admin"
+        ],
+        "description": "Creates a new admin user.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User data",
+            "example": {
+              "fname": "Admin",
+              "lname": "1",
+              "email": "admin1@admin1.com",
+              "password": "1234",
+              "phoneNo": "9898889898",
+              "userType": "admin",
+              "isDeleted": false,
+              "active": true
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "User admin is created.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/city/create": {
+      "post": {
+        "tags": [
+          "City"
+        ],
+        "description": "Creates a city",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "City Data",
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/city/list": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "description": "Lists all cities",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all cities.",
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        }
+      }
+    },
+    "/city/update?_id={cityId}": {
+      "patch": {
+        "tags": [
+          "City"
+        ],
+        "description": "Updates a city",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "description": "ID of city to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Charlotte",
+              "points": [{
+                "address": "300 E 7th St, Charlotte, NC 28202",
+                "coords": "35.227304, -80.837302",
+                "name": "ImagiOn"
+              }, {
+                "address": "600 E 4th St, Charlotte, NC 28202",
+                "coords": "35.221866, -80.838884",
+                "name": "Charlotte-Mecklenburg Government Center (CMGC)"
+              }]
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/city/delete?_id={cityId}": {
+      "delete": {
+        "tags": [
+          "City"
+        ],
+        "description": "Deletes a city",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "description": "ID of city to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/City"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicleType/create": {
+      "post": {
+        "tags": [
+          "Vehicle Type"
+        ],
+        "description": "Creates a vehicle type, used to create a vehicle",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User credentials",
+            "schema": {
+              "$ref": "#/definitions/VehicleType"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/VehicleType"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicleType/list": {
+      "get": {
+        "tags": [
+          "Vehicle Type"
+        ],
+        "description": "Lists all vehicle types",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all vehicle types.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/vehicleType/update?_id={vehicleTypeId}": {
+      "patch": {
+        "tags": [
+          "Vehicle Type"
+        ],
+        "description": "Creates a vehicle type, used to create a vehicle",
+        "parameters": [
+          {
+            "name": "vehicleTypeId",
+            "in": "path",
+            "description": "ID of vehicle type to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Sportive",
+              "minSeats": 4
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/VehicleType"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicleType/delete?_id={vehicleTypeId}": {
+      "delete": {
+        "tags": [
+          "Vehicle Type"
+        ],
+        "description": "Deletes a vehicle type",
+        "parameters": [
+          {
+            "name": "vehicleTypeId",
+            "in": "path",
+            "description": "ID of vehicle type to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/VehicleType"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/coupon/create": {
+      "post": {
+        "tags": [
+          "Coupon"
+        ],
+        "description": "Creates a coupon",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User credentials",
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/coupon/list": {
+      "get": {
+        "tags": [
+          "Coupon"
+        ],
+        "description": "Lists all coupons",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all coupons.",
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          }
+        }
+      }
+    },
+    "/coupon/find?name={couponId}": {
+      "get": {
+        "tags": [
+          "Coupon"
+        ],
+        "description": "Finds a coupon by name",
+        "parameters": [
+          {
+            "name": "couponId",
+            "in": "path",
+            "description": "ID of coupon",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/coupon/update?_id={couponId}": {
+      "patch": {
+        "tags": [
+          "Coupon"
+        ],
+        "description": "Creates a coupon",
+        "parameters": [
+          {
+            "name": "couponId",
+            "in": "path",
+            "description": "ID of coupon type to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Coupon1",
+              "value": "15",
+              "expirationDate": 151665126,
+              "type": "type"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/coupon/delete?_id={couponId}": {
+      "delete": {
+        "tags": [
+          "Coupon"
+        ],
+        "description": "Deletes a coupon",
+        "parameters": [
+          {
+            "name": "couponId",
+            "in": "path",
+            "description": "ID of coupon to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicle/create": {
+      "post": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "Creates a vehicle",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Vehicle data",
+            "schema": {
+              "$ref": "#/definitions/Vehicle"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Vehicle"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicle/list": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "Lists all vehicles",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all Vehicles.",
+            "schema": {
+              "$ref": "#/definitions/Vehicle"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicle/update?_id={vehicleId}": {
+      "patch": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "Creates a vehicle",
+        "parameters": [
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "description": "ID of vehicle to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Sportive",
+              "minSeats": 4
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Vehicle"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/vehicle/delete?_id={vehicleId}": {
+      "delete": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "Deletes a vehicle",
+        "parameters": [
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "description": "ID of vehicle to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/TC"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/transportCompany/create": {
+      "post": {
+        "tags": [
+          "Transportation company"
+        ],
+        "description": "Creates a transportation company",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "TC data",
+            "schema": {
+              "$ref": "#/definitions/TC"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/TC"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/transportCompany/list": {
+      "get": {
+        "tags": [
+          "Transportation company"
+        ],
+        "description": "Lists all transportation companies",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all TC's.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/transportCompany/update?_id={tcId}": {
+      "patch": {
+        "tags": [
+          "Transportation company"
+        ],
+        "description": "Creates a transportation company",
+        "parameters": [
+          {
+            "name": "tcId",
+            "in": "path",
+            "description": "ID of TC to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Sportive",
+              "minSeats": 4
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/TC"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/transportCompany/delete?_id={tcId}": {
+      "delete": {
+        "tags": [
+          "Transportation company"
+        ],
+        "description": "Deletes a transportation company",
+        "parameters": [
+          {
+            "name": "tcId",
+            "in": "path",
+            "description": "ID of TC to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/TC"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/route/create": {
+      "post": {
+        "tags": [
+          "Route"
+        ],
+        "description": "Creates a route",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Route data",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/route/list": {
+      "get": {
+        "tags": [
+          "Route"
+        ],
+        "description": "Lists all routes",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all routes.",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/route/update?_id={routeId}": {
+      "patch": {
+        "tags": [
+          "Route"
+        ],
+        "description": "Updates a route",
+        "parameters": [
+          {
+            "name": "routeId",
+            "in": "path",
+            "description": "ID of Route to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Sportive",
+              "minSeats": 4
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/route/delete?_id={routeId}": {
+      "delete": {
+        "tags": [
+          "Route"
+        ],
+        "description": "Deletes a route",
+        "parameters": [
+          {
+            "name": "routeId",
+            "in": "path",
+            "description": "ID of route to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/trip/create": {
+      "post": {
+        "tags": [
+          "Trip"
+        ],
+        "description": "Creates a trip",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Trip data",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/trip/list": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "description": "Lists all trips",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all trips.",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/trip/update?_id={tripId}": {
+      "patch": {
+        "tags": [
+          "Trip"
+        ],
+        "description": "Updates a trip",
+        "parameters": [
+          {
+            "name": "tripId",
+            "in": "path",
+            "description": "ID of Trip to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Sportive",
+              "minSeats": 4
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/trip/delete?_id={tripId}": {
+      "delete": {
+        "tags": [
+          "Trip"
+        ],
+        "description": "Deletes a trip",
+        "parameters": [
+          {
+            "name": "tripId",
+            "in": "path",
+            "description": "ID of trip to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reservation/create": {
+      "post": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "Creates a reservation",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Reservation data",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reservation/list": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "Lists all reservations",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listed all reservations.",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reservation/update?_id={reservationId}": {
+      "patch": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "Updates a reservation",
+        "parameters": [
+          {
+            "name": "reservationId",
+            "in": "path",
+            "description": "ID of Reservation to be edited",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "description": "Fields to be updated",
+            "example": {
+              "name": "Sportive",
+              "minSeats": 4
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/reservation/delete?_id={reservationId}": {
+      "delete": {
+        "tags": [
+          "Reservation"
+        ],
+        "description": "Deletes a reservation",
+        "parameters": [
+          {
+            "name": "reservationId",
+            "in": "path",
+            "description": "ID of reservation to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/sendEmail/help": {
+      "post": {
+        "tags": [
+          "Send E-mails"
+        ],
+        "description": "Sends a help e-mail",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/sendEmail/driver": {
+      "post": {
+        "tags": [
+          "Send E-mails"
+        ],
+        "description": "Sends a e-mail to a driver",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/sendEmail/rider": {
+      "post": {
+        "tags": [
+          "Send E-mails"
+        ],
+        "description": "Sends e-mail to a rider",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID of user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "userType": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "fname": {
+          "type": "string"
+        },
+        "lname": {
+          "type": "string"
+        },
+        "phoneNo": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "code": {
+          "type": "number"
+        },
+        "tcId": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "stripe_user_id": {
+          "type": "string"
+        },
+        "default_card_id": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        },
+        "regId": {
+          "type": "string"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "City": {
+      "required": [
+        "name",
+        "points"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TC": {
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "coords": {
+          "type": "string"
+        },
+        "phoneNo": {
+          "type": "string"
+        },
+        "defPerCut": {
+          "type": "number"
+        },
+        "approved": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Vehicle": {
+      "properties": {
+        "vehicleTypeId": {
+          "type": "string"
+        },
+        "features": {
+          "type": "string"
+        },
+        "totalSeats": {
+          "type": "number"
+        },
+        "tcId": {
+          "type": "string"
+        },
+        "regNo": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "VehicleType": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "minSeats": {
+          "type": "number"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Coupon": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "number"
+        },
+        "type": {
+          "type": "number"
+        },
+        "value": {
+          "type": "string"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "tripSeq": {
+          "type": "number"
+        },
+        "tripId": {
+          "type": "string"
+        }
+      }
+    },
+    "Route": {
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "costPerSeat": {
+          "type": "array",
+          "xml": {
+            "cost": "number",
+            "vehicleTypeName": "string"
+          },
+          "items": {
+            "type": "object"
+          }
+        },
+        "minAmtToPay": {
+          "type": "array",
+          "xml": {
+            "amount": "number",
+            "vehicleTypeName": "string"
+          },
+          "items": {
+            "type": "object"
+          }
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Trip": {
+      "properties": {
+        "seq": {
+          "type": "number"
+        },
+        "routeId": {
+          "type": "string"
+        },
+        "pickUpPoint": {
+          "type": "array",
+          "xml": {
+            "coords": "string",
+            "address": "string",
+            "name": "string"
+          },
+          "items": {
+            "type": "object"
+          }
+        },
+        "dropOffPoint": {
+          "type": "array",
+          "xml": {
+            "coords": "string",
+            "address": "string",
+            "name": "string"
+          },
+          "items": {
+            "type": "object"
+          }
+        },
+        "departure": {
+          "type": "number"
+        },
+        "departureReturn": {
+          "type": "number"
+        },
+        "driverRating": {
+          "type": "number"
+        },
+        "vehicleRating": {
+          "type": "number"
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "vehicleId": {
+          "type": "string"
+        },
+        "tcSignUpInfo": {
+          "type": "array",
+          "xml": {
+            "minBookedSeats": "number",
+            "timestamp": "string"
+          },
+          "items": {
+            "type": "object"
+          }
+        },
+        "assignedTcId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "finalizedVehicleTypeId": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "amountChargedSuccessfully": {
+          "type": "number"
+        },
+        "chargeSuccessPercent": {
+          "type": "number"
+        },
+        "amountTransferedSuccessfully": {
+          "type": "number"
+        },
+        "statusOfTransfer": {
+          "type": "boolean"
+        },
+        "defPerCut": {
+          "type": "number"
+        },
+        "isReturnLeg": {
+          "type": "boolean"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "isRefundable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Reservation": {
+      "properties": {
+        "seq": {
+          "type": "string"
+        },
+        "riderId": {
+          "type": "string"
+        },
+        "tripId": {
+          "type": "string"
+        },
+        "couponId": {
+          "type": "string"
+        },
+        "totalSeats": {
+          "type": "number",
+          "default": 1
+        },
+        "riderRating": {
+          "type": "number"
+        },
+        "statusOfPayment": {
+          "type": "string",
+          "default": "notCharged"
+        },
+        "statusOfRefund": {
+          "type": "string",
+          "default": "notRefunded"
+        },
+        "chargeId": {
+          "type": "string"
+        },
+        "totalCharge": {
+          "type": "number",
+          "default": 0
+        },
+        "amountCharged": {
+          "type": "number",
+          "default": 0
+        },
+        "amountTransfered": {
+          "type": "number",
+          "default": 0
+        },
+        "status": {
+          "type": "string",
+          "default": "booked"
+        },
+        "isCheckedIn": {
+          "type": "boolean",
+          "default": false
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

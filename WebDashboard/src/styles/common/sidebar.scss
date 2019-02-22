@@ -1,0 +1,71 @@
+@import './variables.scss';
+
+.sidebar {
+  width: var(--nav-width);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #174c6c;
+  transition: all 0.2s ease-in-out;
+  & .sidenavOuter {
+    background: var(--brand-primary);
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    & .sidemenuListTab {
+      background: #174c6c;
+      line-height: 30px;
+      border-top: 1px solid #3f7498;
+      & .topnavImgLeft {
+        display: inline-block !important;
+        width: 15px;
+        margin-bottom: 2px;
+        margin-left: 12px;
+        margin-right: 10px;
+      }
+      & .sidemenuListAddIcon {
+        float: right;
+        margin-top: 8px;
+        margin-right: 8px;
+      }
+    }
+    & :global(ul) {
+      padding: 0;
+      margin: 0;
+      & :global(li) {
+        & :global(a) {
+          display: block;
+          padding: 7px 10px 10px;
+          color: #fff;
+          text-decoration: none;
+          & :global(span:nth-child(1)) {
+          }
+          & :global(span:nth-child(2)) {
+            color: #ecf6fc;
+            font-size: 11.5px;
+            font-weight: 300;
+          }
+          &:hover {
+            background: #3f7498;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .sidebar {
+    left: -235px;
+  }
+  :global(.push-right) {
+    & .sidebar {
+      left: 0;
+    }
+  }
+}

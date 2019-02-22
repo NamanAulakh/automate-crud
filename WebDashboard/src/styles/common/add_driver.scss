@@ -1,0 +1,127 @@
+.adddriverpanel{
+  //  height: 350px;
+  & .form {
+     margin-top: 11px;
+     .formdiv {
+        margin-top: 10px;
+        margin-bottom:  6px;
+        min-height: 50px;
+      .formlabel{
+            font-weight: 700;
+            // margin-right: 10px;
+            // min-width: 150px;
+            // text-align: right;
+            // padding: 6px 9px;
+            margin-top: 5px;
+      }
+      .formfield{
+            flex: 1;
+            font-size: 14px;
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+      }
+      .formfield1{
+            flex: 1;
+            font-size: 14px;
+            padding: 2px 4px;
+            border: 1px solid #ccc;
+      }
+
+       .span1 {
+         padding: 0;
+          .formcontroldd {
+           width: 20%;
+           padding: 2.5%;
+         }
+          .formcontrolmm {
+           width: 20%;
+           margin-left: 5%;
+           padding: 2.5%;
+         }
+          .formcontrolyy {
+           width: 49%;
+           padding: 2.5%;
+           margin-left: 5%;
+         }
+           .formcontrolst {
+             width: 17%;
+             padding: 2%;
+           }
+            .formcontrolsno {
+             width: 17%;
+             margin-left: 5%;
+             padding: 2%;
+           }
+            .formcontrolsc {
+             width: 17%;
+             margin-left: 5%;
+             padding: 2%;
+           }
+            .formcontrolvno {
+             width: 33%;
+             margin-left: 5%;
+             padding: 2%;
+           }
+       }
+    }
+  }
+  h3 {
+  margin-left: 15px;
+}
+.fileInput {
+  display: inline-block;
+  font-size: 14px;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  margin: 15px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+.fileInputLicence {
+ margin-right: 0px;
+}
+.fileInputvehicle {
+ margin-right: 0px;
+}
+.imgPreview {
+  text-align: left;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  box-sizing: content-box;
+}
+.imgPreview1 {
+  text-align: left;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  box-sizing: content-box;
+}
+.imgPreview img {
+  width: 100%;
+  // height: 100%;
+}
+.imgPreview1 img {
+  width: 100%;
+  // height: 100%;
+}
+.previewText {
+  width: 100%;
+  // margin-top: 20px;
+  padding: 20px;
+}
+.submitButton {
+  margin-left: 33.5%;
+  cursor: pointer;
+}
+// .submitButton:hover {
+//   background: #efefef;
+// }
+.centerText {
+  text-align: center;
+  width: 500px;
+}
+
+}

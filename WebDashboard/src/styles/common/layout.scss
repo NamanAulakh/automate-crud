@@ -1,0 +1,272 @@
+.animator {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s linear;
+  -moz-transition: opacity 0.25s linear;
+  transition: opacity 0.25s linear;
+}
+.animator.fade-in {
+  opacity: 1;
+}
+.animator.fade-out {
+  opacity: 0;
+}
+
+
+
+// @import '../../../node_modules/normalize.css/normalize.css';
+
+@import '../../styles/common/variables.scss';
+
+html,body {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+html {
+  color: #222;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.375;
+}
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: var(--brand-primary);
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/*
+ * Browser upgrade prompt
+ * ========================================================================== */
+
+:global(.browserupgrade) {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/*
+ * Print styles
+ * Inlined to avoid the additional HTTP request:
+ * http://www.phpied.com/delay-loading-your-print-css/
+ * ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+
+  a[href^='#']::after,
+  a[href^='javascript:']::after {
+    content: '';
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+.dashboardPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ecf0f1;
+  color: #666;
+}
+
+.uiView {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+.uiBase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#bodyContainer {
+  margin-left: var(--nav-width);
+  padding: 10px;
+  margin-top: 70px;
+  overflow: auto;
+  overflow-x: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+/*:gloabl(.ani-theme-appear) {
+  opacity: 0.01;
+}
+
+:global(.ani-theme-appear.ani-theme-appear-active) {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}*/
+
+:global(.m-b-zero) {
+  margin-bottom: 0;
+}
+:global(.animate) {
+  -webkit-animation: cssAnimation 0.456s 1 ease;
+  -moz-animation: cssAnimation 0.456s 1 ease;
+  -o-animation: cssAnimation 0.456s 1 ease;
+}
+@-webkit-keyframes cssAnimation {
+  from { -webkit-transform: rotate(0deg) scale(0.955) skew(0deg) translate(0px); }
+  to { -webkit-transform: rotate(0deg) scale(1.0) skew(0deg) translate(0px); }
+}
+@-moz-keyframes cssAnimation {
+  from { -moz-transform: rotate(0deg) scale(0.955) skew(0deg) translate(0px); }
+  to { -moz-transform: rotate(0deg) scale(1.0) skew(0deg) translate(0px); }
+}
+@-o-keyframes cssAnimation {
+  from { -o-transform: rotate(0deg) scale(0.955) skew(0deg) translate(0px); }
+  to { -o-transform: rotate(0deg) scale(1.0) skew(0deg) translate(0px); }
+}
+
+:global(.form-horizontal .form-group div:nth-child(1)) {
+  margin-top: 6px;
+}
+
+:global(.form-horizontal .form-group) {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+:global(.rtl) {
+  & #bodyContainer {
+    margin-right: 235px;
+    margin-left: 0;
+  }
+  & aside {
+    left: auto;
+    right: 0;
+  }
+}
+
+@media(max-width: 767px) {
+  #bodyContainer {
+    margin-left: 0;
+    width: 100%;
+  }
+  .dashboardPage {
+    margin-left: -var(--nav-width);
+    postion: static;
+  }
+  :global(.dashboard-page.push-right) {
+    margin-left: 0;
+    & #bodyContainer {
+      margin-left: var(--nav-width);
+      overflow: auto;
+    }
+  }
+}

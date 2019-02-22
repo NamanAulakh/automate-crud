@@ -1,0 +1,64 @@
+.adddCustomerpanel {
+  height: 350px;
+  & .form {
+    margin-top: 11px;
+    .formdiv {
+      margin-top: 10px;
+      margin-bottom: 6px;
+      min-height: 50px;
+      .formlabel {
+        font-weight: 700;
+        margin-top: 5px;
+      }
+      .formfield {
+        flex: 1;
+        font-size: 14px;
+        padding: 5px 8px;
+        border: 1px solid #ccc;
+      }
+      .formfield1 {
+        flex: 1;
+        font-size: 14px;
+        padding: 2px 4px;
+        border: 1px solid #ccc;
+      }
+
+      .span1 {
+        padding: 0;
+        .formcontroldd {
+          width: 20%;
+          padding: 2.5%;
+        }
+        .formcontrolmm {
+          width: 20%;
+          margin-left: 5%;
+          padding: 2.5%;
+        }
+        .formcontrolyy {
+          width: 49%;
+          padding: 2.5%;
+          margin-left: 5%;
+        }
+        .formcontrolst {
+          width: 17%;
+          padding: 2%;
+        }
+        .formcontrolsno {
+          width: 17%;
+          margin-left: 5%;
+          padding: 2%;
+        }
+        .formcontrolsc {
+          width: 17%;
+          margin-left: 5%;
+          padding: 2%;
+        }
+        .formcontrolvno {
+          width: 33%;
+          margin-left: 5%;
+          padding: 2%;
+        }
+      }
+    }
+  }
+}
