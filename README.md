@@ -8,13 +8,15 @@
 
 # Usage
 
-Config file should like this:
+Config file should be a `.js` file and should look something like this:
 
-
+[![config.js](https://github.com/NamanAulakh/automate-crud/blob/master/assets/config.png?raw=true)
 
 # Commands
 
-Run `./bin/run <path-to-the -config-file>` in the project root
+Run `npm i && ./bin/run <path-to-the -config-file>` in the project root:
+
+[![demo](https://github.com/NamanAulakh/automate-crud/blob/master/assets/1.gif?raw=true)
 
 # Roadmap
 
