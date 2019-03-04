@@ -14,7 +14,29 @@
 
 Config file should be a `.js` file and should look something like this:
 
-[![config.js](https://github.com/NamanAulakh/automate-crud/blob/master/assets/config.png?raw=true)
+<!---- [![config.js](https://github.com/NamanAulakh/automate-crud/blob/master/assets/config.png?raw=true) -->
+
+```
+module.exports = {
+  name: 'dating-app',
+  models: {
+    User: {
+      email: { type: 'String', default: '', unique: true, required: true },
+      isVerified: { type: 'Boolean', default: false },
+    },
+    Vote: {
+      isLiked: { type: 'Boolean', default: true },
+      otherId: { type: 'String' },
+      userId: { type: 'String' },
+    },
+    Profile: {
+      userId: { type: 'String' },
+      age: { type: 'Number' },
+      name: { type: 'String' },
+    },
+  },
+};
+```
 
 # Commands
 
